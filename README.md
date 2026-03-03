@@ -3,6 +3,7 @@
 A text classification project that predicts whether a company is **sustainable (1)** or **not sustainable (0)** based on textual fields (e.g., `about`).
 
 This repository includes:
+
 - A training notebook with data cleaning and modeling experiments
 - A saved scikit-learn pipeline (`joblib`)
 - A minimal Flask API to serve predictions
@@ -29,6 +30,7 @@ This repository includes:
     │   └── app.py
     └── client/
         └── client.py
+```
 
 ### Example API request
 
@@ -36,7 +38,7 @@ This repository includes:
 curl -X POST http://localhost:5000/predict \
      -H "Content-Type: application/json" \
      -d '{"text_description": "We build solar panels and renewable energy systems"}'
-
+```
 ## Model Performance
 
 Two ensemble models were evaluated: Random Forest and Gradient Boosting.
@@ -59,3 +61,26 @@ Gradient Boosting achieved a better balance between precision and recall for the
 which makes it more suitable for this imbalanced classification problem.
 
 The model selection prioritizes minority class performance rather than overall accuracy.
+## Architecture Overview
+
+This project follows a simple but production-oriented structure:
+
+1. **Training Layer (Notebook)**
+   - Data cleaning and preprocessing
+   - TF-IDF vectorization
+   - Handling class imbalance
+   - Model comparison and evaluation
+   - Model serialization using joblib
+
+2. **Model Artifact**
+   - The trained scikit-learn pipeline is stored in `models/Crata_model.pkl`
+
+3. **Serving Layer (Flask API)**
+   - Exposes a `/predict` endpoint
+   - Loads the serialized model at startup
+   - Accepts text input via JSON
+   - Returns classification result
+
+4. **Client Layer**
+   - Command-line interface
+   - Supports single prediction or batch CSV input
