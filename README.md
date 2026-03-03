@@ -4,6 +4,7 @@
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 ![Flask](https://img.shields.io/badge/Flask-API-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
 A text classification project that predicts whether a company is **sustainable (1)** or **not sustainable (0)** based on textual fields (e.g., `about`).
 
 This repository includes:
@@ -39,11 +40,12 @@ This repository includes:
 
 ```mermaid
 flowchart TD
-  A[Dataset CSV<br/>(not included)] --> B[Training Notebook<br/>notebooks/Data_Challenge.ipynb]
-  B --> C[Serialized Model<br/>models/Crata_model.pkl]
-  C --> D[Flask API<br/>src/api/app.py]
-  D --> E[Client CLI<br/>src/client/client.py]
+  A["Dataset CSV (not included)"] --> B["Training Notebook (notebooks/Data_Challenge.ipynb)"]
+  B --> C["Serialized Model (models/Crata_model.pkl)"]
+  C --> D["Flask API (src/api/app.py)"]
+  D --> E["Client CLI (src/client/client.py)"]
   E --> D
+```
 
 ### Example API request
 
