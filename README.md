@@ -1,5 +1,9 @@
-# Crata Sustainability Classifier
 
+# Crata Sustainability Classifier
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
+![Flask](https://img.shields.io/badge/Flask-API-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-green)
 A text classification project that predicts whether a company is **sustainable (1)** or **not sustainable (0)** based on textual fields (e.g., `about`).
 
 This repository includes:
@@ -31,6 +35,15 @@ This repository includes:
     └── client/
         └── client.py
 ```
+## Architecture
+
+```mermaid
+flowchart TD
+  A[Dataset CSV<br/>(not included)] --> B[Training Notebook<br/>notebooks/Data_Challenge.ipynb]
+  B --> C[Serialized Model<br/>models/Crata_model.pkl]
+  C --> D[Flask API<br/>src/api/app.py]
+  D --> E[Client CLI<br/>src/client/client.py]
+  E --> D
 
 ### Example API request
 
